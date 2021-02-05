@@ -1,0 +1,25 @@
+<select name="ctl00$phMainContent$ddhrSpecialty" onchange="javascript:setTimeout('__doPostBack(\'ctl00$phMainContent$ddhrSpecialty\',\'\')', 0)" id="ctl00_phMainContent_ddhrSpecialty" class="selectMenu" style="width:220px;">
+			<option value="-1">جميع الاختصاصات</option>
+			<option value="500">الهندسة المعمارية</option>
+			<option selected="selected" value="503">الهندسة المدنية</option>
+			<option value="521">الهندسة الميكانيكية</option>
+			<option value="525">الهندسة الكهربائية</option>
+			<option value="533">هندسة المناجم والتعدين والهندسة الجيولوجية</option>
+			<option value="536">الهندسة الصناعية والكيميائية والبترولية</option>
+			<option value="544">اختصاصات متفرقة</option>
+			<option value="550">الهندسة الزراعية</option>
+			<option value="552">ادارة هندسية</option>
+
+		</select>
+
+
+    -1	جميع الاختصاصات
+    500	الهندسة المعمارية
+    503	الهندسة المدنية
+    521	الهندسة الميكانيكية
+    525	الهندسة الكهربائية
+    533	هندسة المناجم والتعدين والهندسة الجيولوجية
+    536	الهندسة الصناعية والكيميائية والبترولية
+    544	اختصاصات متفرقة
+    550	الهندسة الزراعية
+    552	ادارة هندسية
