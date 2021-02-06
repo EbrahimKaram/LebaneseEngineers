@@ -52,7 +52,12 @@ if __name__ == '__main__':
         sample["Latin_Names"] = sample["Latin_Names"].str.replace('</div>', '')
         sample["Links"] = sample["Links"].astype(str).str.replace('<div class="more"><a href="', '')
         sample["Links"] = sample["Links"].str.replace('">التفاصيل</a></div>', '')
-        print(sample["Links"])
+
+        sample["Field_ID"]=field
+        sample["SubField_ID"]=subfield
+        sample["Field"]=row["Field"]
+        sample["SubField"]=row["SubField"]
+
         print(sample.info())
 
         sample.to_csv("Data/sample.csv", index=False)
