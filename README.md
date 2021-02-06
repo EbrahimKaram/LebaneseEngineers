@@ -101,6 +101,11 @@ You can look into how that was done by checking
 The ideal scenario is having a database with the following
 * Field
 * Subfield
-* Name
+* Arabic Name
 * Latin Name
 * Engineer ID
+
+# Support
+If you liked this project and found it useful, I would really appreciate your support by buying me a drink via the link below
+
+https://www.buymeacoffee.com/bobKaram
