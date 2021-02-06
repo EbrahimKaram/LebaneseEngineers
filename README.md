@@ -86,16 +86,20 @@ The subfields are the same for all fields. Seems to be a time issue with impleme
 ## What can we do
 Let's see what happens when try unrelated field with a subfield
 We will get the following response
+
+```
 <div id="hiddenNoMore" class="noResDiv">لا يوجد أي نتيجة</div>
+```
 
 So maybe we should try all possible combinations and see what happens
 we have 63 subfields and 10 fields. We have a total of 630 permutations to try
 
-##What we ended up with
-We got 62 subfields and we now what subfields are under which fields.
-Details are in script that says "Knowing the subcategories"
+### What we ended up with
+We got 62 subfields and we now know which subfields are under which fields.
 You can look into how that was done by checking
 `GetTheFieldsAndSubfields.py`
+
+The data is in the folder mentioned `Categories`
 
 # Building a database
 The ideal scenario is having a database with the following
@@ -111,6 +115,7 @@ You can look at the `pullingTheDBv0.8.py` code to see how that was done.
 We know need to merge all that data into one CSV so it's easier to analyze
 
 # Future Prospects for this project
+
 This allows for multiple projects in Machine learning and Data analysis.
 Some ideas for Machine learning:
 * Machine learning to write any Latin name in Arabic
@@ -122,7 +127,7 @@ Some ideas for Data analysis
 * What is the most dominant last name in every engineering Discipline
 * How many people are in each Discipline
 * Which discipline is the least active (not a lot of new IDs)
-* etc... 
+* etc...
 
 
 # Support
