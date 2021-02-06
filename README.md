@@ -104,6 +104,26 @@ The ideal scenario is having a database with the following
 * Arabic Name
 * Latin Name
 * Engineer ID
+* Link to extra info for that individual on the order of engineers sites
+
+You can look at the `pullingTheDBv0.8.py` code to see how that was done.
+
+We know need to merge all that data into one CSV so it's easier to analyze
+
+# Future Prospects for this project
+This allows for multiple projects in Machine learning and Data analysis.
+Some ideas for Machine learning:
+* Machine learning to write any Latin name in Arabic
+* From your name what is likelihood you will become an engineer
+* Arabic to Latin training
+* etc...
+
+Some ideas for Data analysis
+* What is the most dominant last name in every engineering Discipline
+* How many people are in each Discipline
+* Which discipline is the least active (not a lot of new IDs)
+* etc... 
+
 
 # Support
 If you liked this project and found it useful, I would really appreciate your support by buying me a drink via the link below
