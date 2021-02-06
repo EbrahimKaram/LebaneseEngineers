@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import requests
 import random
 from bs4 import BeautifulSoup
@@ -36,11 +37,26 @@ if __name__ == '__main__':
         latin_names = soup.find_all(class_="field")
         links = soup.find_all(class_="more")
 
+        data = {"Engineer_ID": engineer_IDs,
+                "Arabic_Names": arabic_names,
+                "Latin_Names": latin_names,
+                "Links": links
+                }
+        sample = pd.DataFrame(data=data)
+        print(sample.info())
+        sample["Engineer_ID"] = sample["Engineer_ID"].astype(str).str.replace('<div class="date"><b>رقم المهندس: </b>', '')
+        sample["Engineer_ID"] = sample["Engineer_ID"].str.replace('</div>', '')
+        sample["Arabic_Names"] = sample["Arabic_Names"].astype(str).str.replace('<div class="company"><b>الاسم: </b>', '')
+        sample["Arabic_Names"] = sample["Arabic_Names"].str.replace('</div>', '')
+        sample["Latin_Names"] = sample["Latin_Names"].astype(str).str.replace('<div class="field"><b>Latin Name: </b>', '')
+        sample["Latin_Names"] = sample["Latin_Names"].str.replace('</div>', '')
+        sample["Links"] = sample["Links"].astype(str).str.replace('<div class="more"><a href="', '')
+        sample["Links"] = sample["Links"].str.replace('">التفاصيل</a></div>', '')
+        print(sample["Links"])
+        print(sample.info())
 
-        data={"Engineer_ID":engineer_IDs,
-        "Arabic_Names":arabic_names,
-        "Latin_Names":latin_names,
-        "Links": links}
+        sample.to_csv("Data/sample.csv", index=False)
+
 
 # TODO: Create CSV and check it
 # TODO: create dictionaary
