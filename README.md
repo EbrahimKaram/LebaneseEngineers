@@ -94,6 +94,8 @@ we have 63 subfields and 10 fields. We have a total of 630 permutations to try
 ##What we ended up with
 We got 62 subfields and we now what subfields are under which fields.
 Details are in script that says "Knowing the subcategories"
+You can look into how that was done by checking
+`GetTheFieldsAndSubfields.py`
 
 # Building a database
 The ideal scenario is having a database with the following
