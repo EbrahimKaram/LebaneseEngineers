@@ -63,8 +63,9 @@ if __name__ == '__main__':
         sample.to_csv("Data/sample.csv", index=False)
 
 
-# TODO: Create CSV and check it
-# TODO: create dictionaary
+# TODO: Call until no more
+
+# TODO: merge all the dfs into and print into a subfiled and filed csv
 # We need the remove the added divs and info
 
         break
