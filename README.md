@@ -112,7 +112,36 @@ The ideal scenario is having a database with the following
 
 You can look at the `pullingTheDBv0.8.py` code to see how that was done.
 
-We know need to merge all that data into one CSV so it's easier to analyze
+We know need to merge all that data into one CSV so it's easier to analyze. You can can look at `mergeAllFiles.py` for the details on how that was done.
+
+## Quick answers
+***How many engineers are registered as of February 6,2021?***
+
+65,949
+Please note that the excel only mentions that we have 50,725 engineers. There might be duplicates in our file. We will check this now.
+So apparently we have engineers that specialize in more than one field. There are 15002 engineers that specialize in more than one subfield.
+
+***What are the 3 most popular subfields***
+
+Field  |  Subfield |  Number
+--|---|--
+  الهندسة الكهربائية| الهندسة الكهربائية  |  10566
+ الهندسة المدنية  |   الهندسة المدنية |   7055
+ الهندسة المدنية|مدني-عام |    6844    
+
+_**What are the most popular fields?**_
+
+Field | Number
+--|--
+ الهندسة الكهربائية                     |    22035
+ الهندسة المدنية                            |   17616
+ الهندسة المعمارية                          |   12028
+ الهندسة الميكانيكية                        |    9618
+ الهندسة الزراعية                           |    3102
+ الهندسة الصناعية والكيميائية والبترولية    |    1302
+ اختصاصات متفرقة                            |     225
+ هندسة المناجم والتعدين والهندسة الجيولوجية |      23
+
 
 # Future Prospects for this project
 
