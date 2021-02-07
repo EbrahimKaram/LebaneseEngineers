@@ -1,3 +1,9 @@
+# TL; DR (too long didn't read)
+The CSV with every engineer registered in Lebanon
+https://github.com/EbrahimKaram/LebaneseEngineers/blob/master/Data/all_engineers.csv
+
+Read on if you want to know about process and how it was done
+
 # How to get Every Engineer in Lebanon
 There is a website that allows to search the directory for engineers
 
@@ -115,7 +121,7 @@ The ideal scenario is having a database with the following
 * Engineer ID
 * Link to extra info for that individual on the order of engineers site
 
-You can look at the `pullingTheDBv0.8.py` code to see how that was done.
+You can look at the `pullingTheDBv0.8.py` code to see how that was done. We put them into separate CSVs simply not to repeat the entire process if something broke midway. Small steps towards the bigger goal is preferred over a giant leap.
 
 We know need to merge all that data into one CSV so it's easier to analyze. You can look at `mergeAllFiles.py` for the details on how that was done.
 
@@ -163,6 +169,7 @@ Some ideas for Data analysis
 * Which discipline is the least active (not a lot of new IDs)
 * etc...
 
+Please download the complete CSV from [here](https://github.com/EbrahimKaram/LebaneseEngineers/blob/master/Data/all_engineers.csv)
 
 # Support
 If you liked this project and found it useful, I would really appreciate your support by buying me a drink via the link below
