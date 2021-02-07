@@ -4,14 +4,15 @@ There is a website that allows to search the directory for engineers
 https://www.oea.org.lb/Arabic/MembersSearch.aspx?pageid=112
 
 
-now if just search we will get ability to download the excel but it doesn't have the latin names.
+now if just search we will get ability to download the excel but it doesn't have the latin names. You can check the excel they provide `OEA-All-Members.xlsx`. This is not what I like and is incomplete in my opinion. We can scrap the directory website and get what we need
 
-We want to have a database of Latin names to Arabic names. It would be useful to train a model for later for Arabic to English
+We want to have a database of Latin names to Arabic names. It would be useful to train a model for later for Arabic to English or the other way around.
+
 
 ## Let's see what the actual request is
-We open Developer tools and monitor the network and see what requests are being done
+We open Developer tools and monitor the network and see what requests are being done when we click on search.
 
-We can see that the network is sending the following request
+We can see that the page is sending the following request
 ```
 https://www.oea.org.lb/Arabic/GetMembers.aspx?PageID=112&CurrPage=1&fstname=&lstname=&fatname=&numb=&spec=-1&spec1=-1&searchoption=And&rand=0.9449476735976416
 
@@ -27,7 +28,7 @@ searchoption: And
 rand: 0.9449476735976416
 
 ```
-If we plug that link into Google Chrome we can get the list of the names to the first 20 names and it looks like this
+If we plug that link into Google Chrome we can get the list of the first 20 names and it looks like this
 ```
 رقم المهندس: 14
 الاسم: يحيى أحمد مزبودي
@@ -50,27 +51,28 @@ spec1: -1
 searchoption: And
 rand: 0.055286690143709905
 ```
-Rand value changes but the curr page also changes which indicates the pagination. We can't change that to -1
-rand doesn't seem to be doing much could be a security issue.
-currPage starts at 1
+Rand value changes but the curr page also changes which indicates the pagination. We can't change that to -1 then we have an invalid request.
+Rand doesn't seem to be doing much could be a security issue.
+We notice that currPage starts at 1 instead of zero
 
-What happens when we over increment currPage?
+*What happens when we over increment currPage?*
+
 We get the following response
 <div id="hiddenNoMore" class="noResDiv">لا يوجد أي نتيجة</div>
 
-These are Get Requests so we can do them from the browser
+These are Get Requests so we can do them from the browser and we don't need to use something like PostMan to test.
 
 # Missing info
-Now it seems that the database has fields that are requested but never shown
-like we other than the search field we can't seem to find the major field and subfield
+Now it seems that the database has fields that are requested but never shown. We can search by subfield and field but those are not reiterated in the results and are not provided in the excel that is easily downloadable.
+
 They call them here the following `نوع الاختصاص ` and 'حقل الاختصاص'
 
-Those would go into the spec and spec1 field
+Those would go into the spec and spec1 field of the get requests
 
 We are gonna call them accordingly
 field and subfield
-`نوع الاختصاص ` and 'حقل الاختصاص'
-We should probably start in getting the and number for the fields and their respective subfields
+`نوع الاختصاص ` and `حقل الاختصاص`
+We should probably start in getting IDs for the fields, their respective subfields, and the subfield IDs. (IDs are what the requests use)
 
 Requests  |  Arabic |  Ours
 --|---|--
@@ -78,13 +80,16 @@ Requests  |  Arabic |  Ours
 spec1  | حقل الاختصاص  |  subfields
 
 
+**Tech Tip**
+Please note that UTF-8 is not the default for excel. You need to change it following the link below
 https://techcommunity.microsoft.com/t5/excel/open-and-edit-a-csv-file-in-utf8/m-p/1035542
 
-It seems that the subfields are not divided according to fields
-The subfields are the same for all fields. Seems to be a time issue with implementation or just lazy implementation
+What we notice is that when we pick a field we don't get a list of subfields to choose from. They stay the same.
+
+The subfields are the same for all fields. This might be due to a  time issue with implementation or just lazy implementation. This is just odd because the screen does load when you pick a field.
 
 ## What can we do
-Let's see what happens when try unrelated field with a subfield
+Let's see what happens when try an unrelated field with a subfield.
 We will get the following response
 
 ```
@@ -92,7 +97,7 @@ We will get the following response
 ```
 
 So maybe we should try all possible combinations and see what happens
-we have 63 subfields and 10 fields. We have a total of 630 permutations to try
+we have 63 subfields and 10 fields. We have a total of 630 permutations to try.
 
 ### What we ended up with
 We got 62 subfields and we now know which subfields are under which fields.
@@ -108,11 +113,11 @@ The ideal scenario is having a database with the following
 * Arabic Name
 * Latin Name
 * Engineer ID
-* Link to extra info for that individual on the order of engineers sites
+* Link to extra info for that individual on the order of engineers site
 
 You can look at the `pullingTheDBv0.8.py` code to see how that was done.
 
-We know need to merge all that data into one CSV so it's easier to analyze. You can can look at `mergeAllFiles.py` for the details on how that was done.
+We know need to merge all that data into one CSV so it's easier to analyze. You can look at `mergeAllFiles.py` for the details on how that was done.
 
 ## Quick answers
 ***How many engineers are registered as of February 6,2021?***
