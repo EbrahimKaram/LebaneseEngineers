@@ -77,7 +77,7 @@ Those would go into the spec and spec1 field of the get requests
 
 We are gonna call them accordingly
 field and subfield
-`نوع الاختصاص ` and `حقل الاختصاص`
+`نوع الاختصاص ` and  `حقل الاختصاص`
 We should probably start in getting IDs for the fields, their respective subfields, and the subfield IDs. (IDs are what the requests use)
 
 Requests  |  Arabic |  Ours
@@ -153,6 +153,37 @@ Field | Number
  اختصاصات متفرقة                            |     225
  هندسة المناجم والتعدين والهندسة الجيولوجية |      23
 
+_**Which Field has the younger engineers?**_
+
+ID's are given incrementally. New memebers have bigger ID numbers. 
+
+Field | Average ID
+--|--
+ الهندسة الصناعية والكيميائية والبترولية    |   42830.877880
+ اختصاصات متفرقة                            |   39955.746667
+ الهندسة الميكانيكية                        |   38171.511957
+ الهندسة الكهربائية                         |   36900.069027
+ الهندسة المعمارية                          |   33925.649734
+ الهندسة الزراعية                           |   32928.924242
+ الهندسة المدنية                            |   32895.640327
+ هندسة المناجم والتعدين والهندسة الجيولوجية |   23856.130435
+
+Chemical engineering seems to have more recent members than old members. Civil engineering has more experienced engineers.
+
+Now looking at the median ID. We know where that 50% mark is exactly. It could be a better indicator than average. 
+
+Agriculture needs some fresh blood.
+
+Field | Median ID
+--|--
+ الهندسة الصناعية والكيميائية والبترولية    |   47467.0
+ اختصاصات متفرقة                            |   44171.0
+ الهندسة الميكانيكية                        |   38971.0
+ الهندسة الكهربائية                         |   37240.0
+ الهندسة المدنية                            |   34937.5
+ الهندسة المعمارية                          |   34088.5
+ الهندسة الزراعية                           |   30970.0
+ هندسة المناجم والتعدين والهندسة الجيولوجية |   21851.0
 
 # Future Prospects for this project
 
@@ -166,7 +197,12 @@ Some ideas for Machine learning:
 Some ideas for Data analysis
 * What is the most dominant last name in every engineering Discipline
 * How many people are in each Discipline
+  * Answered Above
 * Which discipline is the least active (not a lot of new IDs)
+  * This can be done by checking the average ID. IDs are given sequentially. New members get bigger IDs
+  * Answered Above
+* A range of Age
+  * What is the smallest ID and largest ID. A indicator of membership age. who is an old member. WHo is a new member
 * etc...
 
 Please download the complete CSV from [here](https://github.com/EbrahimKaram/LebaneseEngineers/blob/master/Data/all_engineers.csv)

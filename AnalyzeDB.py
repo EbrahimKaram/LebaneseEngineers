@@ -10,3 +10,9 @@ if __name__ == '__main__':
 # df['Links'] = df['Links'].apply(lambda x: '<a href="{0}">Details</a>'.format(x))
 # HTML(df.to_html(escape=False))
 
+# df.groupby(["Field",'SubField'])["Engineer_ID"].mean().nsmallest(10)
+
+
+# df.groupby("Field")["Engineer_ID"].mean().nlargest(10)
+
+# df.groupby("Field")["Engineer_ID"].median().nlargest(10)
