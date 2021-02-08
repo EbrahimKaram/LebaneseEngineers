@@ -237,3 +237,6 @@ Please download the complete CSV from [here](https://github.com/EbrahimKaram/Leb
 If you liked this project and found it useful, I would really appreciate your support by buying me a drink via the link below
 
 <https://www.buymeacoffee.com/bobKaram>
+
+Also submit any issues you find in the link below. It could be a space for discussion and extra features that might be added. Also if you have any questions you would like to answer
+https://github.com/EbrahimKaram/LebaneseEngineers/issues
