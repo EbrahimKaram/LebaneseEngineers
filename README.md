@@ -227,6 +227,7 @@ Some ideas for Data analysis
     -   Answered Above
 -   A range of Age
     -   What is the smallest ID and largest ID. A indicator of membership age. who is an old member. WHo is a new member
+    - Answered Above
 -   etc...
 
 Please download the complete CSV from [here](https://github.com/EbrahimKaram/LebaneseEngineers/blob/master/Data/all_engineers.csv)
