@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 if __name__ == '__main__':
     df = pd.read_csv("Data/all_engineers.csv", encoding="utf-8")
@@ -16,3 +17,7 @@ if __name__ == '__main__':
 # df.groupby("Field")["Engineer_ID"].mean().nlargest(10)
 
 # df.groupby("Field")["Engineer_ID"].median().nlargest(10)
+
+# results=df.groupby("Field").agg({'Engineer_ID': ['min','median', 'max']})
+# results.sort_values([('Engineer_ID', 'median')], ascending=False)
+
