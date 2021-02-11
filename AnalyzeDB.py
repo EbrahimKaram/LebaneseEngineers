@@ -21,3 +21,7 @@ if __name__ == '__main__':
 # results=df.groupby("Field").agg({'Engineer_ID': ['min','median', 'max']})
 # results.sort_values([('Engineer_ID', 'median')], ascending=False)
 
+
+# To Drop a column
+# df.drop(columns=['Links'],inplace=True)
+# df.to_csv("Data/All_engineers_reduced.csv",index=False)
