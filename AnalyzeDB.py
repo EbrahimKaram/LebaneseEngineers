@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     df = pd.read_csv("Data/all_engineers.csv", encoding="utf-8")
     # df.Links = "https://www.oea.org.lb/Arabic/"+df.Links
     # df.to_csv("Data/all_engineers.csv", index=False)
@@ -20,4 +20,3 @@ if __name__ == '__main__':
 
 # results=df.groupby("Field").agg({'Engineer_ID': ['min','median', 'max']})
 # results.sort_values([('Engineer_ID', 'median')], ascending=False)
-

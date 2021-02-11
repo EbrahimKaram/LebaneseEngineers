@@ -2,7 +2,7 @@ import glob
 import pandas as pd
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     files = glob.glob("Data/*[0-9].csv")
     print(files)
     print(len(files))
