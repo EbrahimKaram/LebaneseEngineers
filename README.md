@@ -3,6 +3,8 @@
 The CSV with every engineer registered in Lebanon
 <https://github.com/EbrahimKaram/LebaneseEngineers/blob/master/Data/all_engineers.csv>
 
+If you are using excel to open the csv, you need to know that you need to change the encoding to UTF-8. Follow the steps [here](https://techcommunity.microsoft.com/t5/excel/open-and-edit-a-csv-file-in-utf8/m-p/1035542)
+
 Early Data Analytics can be found here
 <https://github.com/EbrahimKaram/LebaneseEngineers#quick-answers>
 
@@ -244,3 +246,8 @@ If you liked this project and found it useful, I would really appreciate your su
 
 Also submit any issues you find in the link below. It could be a space for discussion and extra features that might be added. Also if you have any questions you would like to answer
 https://github.com/EbrahimKaram/LebaneseEngineers/issues
+
+
+# PostMortem
+I just got feedback that I could have used an RPA for this. Some of them cost money but there's a free one from UIPath.
+People are surprised that this info is readily available and are worried. Hopefully this project becomes more of an awareness campaign  
