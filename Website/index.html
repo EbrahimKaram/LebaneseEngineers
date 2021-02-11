@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<html>
+
+<head>
+    <style>
+        #loading {
+            background: url('https://media1.giphy.com/media/feN0YJbVs0fwA/giphy.gif') no-repeat center center;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+
+        }
+
+    </style>
+
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!--    <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script> (not working for some reason)-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" charset="utf-8"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.css" />
+
+    <!--    <script type='text/javascript' src='script.js'></script>-->
+
+    <!--    This works but its slow-->
+    <script type='text/javascript' src='script1.js'></script>
+
+
+</head>
+
+<body>
+    <h1>Lebanese Engineers </h1>
+    <div id="loading">
+        <p>Thank you for your patience. The table is loading...</p>
+    </div>
+
+    <table id="example" class="display nowrap" style="width:100%">
+
+    </table>
+
+
+</body>
+
+</html>
