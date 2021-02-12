@@ -86,7 +86,6 @@ def join_name_list(arabic_full_name: str, latin_full_name: str):
             else:
                 new_la_name_list.extend(latin_full_name_list[: index - 1])
                 new_la_name_list.append(
-                    # this is getting delted when it repasses through the recursion i think
                     latin_full_name_list[index - 1] + "-" + la_hf_name
                 )
                 new_la_name_list.extend(latin_full_name_list[index + 1:])
