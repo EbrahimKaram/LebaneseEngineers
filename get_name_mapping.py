@@ -17,10 +17,11 @@ half_names = [
 # %%
 full_name_map = []
 for row in engineers_df[["Arabic_Names", "Latin_Names"]].iterrows():
-    full_name_map.append((row[0], row[1]["Arabic_Names"], row[1]["Latin_Names"]))
+    full_name_map.append(
+        (row[0], row[1]["Arabic_Names"], row[1]["Latin_Names"]))
 # %%
 
-rejected_chars_regex = r"[^\u0621-\u063A\u0641-\u064Aa-z ]"
+rejected_chars_regex = r"[^\u0621-\u063A\u0641-\u064Aa-z\- ]"
 
 
 def clean(name: str):
@@ -60,14 +61,14 @@ def join_name_list(arabic_full_name: str, latin_full_name: str):
                 new_ar_name_list.append(
                     ar_hf_name + "-" + arabic_name_full_list[index + 1]
                 )
-                new_ar_name_list.extend(arabic_name_full_list[index + 2 :])
+                new_ar_name_list.extend(arabic_name_full_list[index + 2:])
                 arabic_name_full_list = new_ar_name_list
             else:
                 new_ar_name_list.extend(arabic_name_full_list[: index - 1])
                 new_ar_name_list.append(
                     arabic_name_full_list[index - 1] + "-" + ar_hf_name
                 )
-                new_ar_name_list.extend(arabic_name_full_list[index + 1 :])
+                new_ar_name_list.extend(arabic_name_full_list[index + 1:])
                 arabic_name_full_list = new_ar_name_list
         new_la_name_list = []
         if la_hf_name in latin_full_name_list and ar_hf_name in " ".join(
@@ -80,14 +81,15 @@ def join_name_list(arabic_full_name: str, latin_full_name: str):
                 new_la_name_list.append(
                     la_hf_name + "-" + latin_full_name_list[index + 1]
                 )
-                new_la_name_list.extend(latin_full_name_list[index + 2 :])
+                new_la_name_list.extend(latin_full_name_list[index + 2:])
                 latin_full_name_list = new_la_name_list
             else:
                 new_la_name_list.extend(latin_full_name_list[: index - 1])
                 new_la_name_list.append(
+                    # this is getting delted when it repasses through the recursion i think
                     latin_full_name_list[index - 1] + "-" + la_hf_name
                 )
-                new_la_name_list.extend(latin_full_name_list[index + 1 :])
+                new_la_name_list.extend(latin_full_name_list[index + 1:])
                 latin_full_name_list = new_la_name_list
     if flag:
         return join_name_list(
