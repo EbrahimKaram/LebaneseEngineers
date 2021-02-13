@@ -86,7 +86,7 @@ d3.csv("All_engineers_reduced.csv", function (data) {
         ],
         initComplete: function () {
             // Apply the search
-            this.api().columns().every(function () {
+            this.api().columns().every(function (index) {
                 var that = this;
 
                 $('input', this.footer()).on('keyup change clear', function () {
@@ -96,6 +96,26 @@ d3.csv("All_engineers_reduced.csv", function (data) {
                             .draw();
                     }
                 });
+
+                name = this.column(index).header().textContent;
+                if ((!(searchable.includes(name))) && (name!='Website')) {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+
+                    column.data().unique().sort().each(function (d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')
+                    });
+                }
 
 
             });
@@ -117,3 +137,7 @@ d3.csv("All_engineers_reduced.csv", function (data) {
 
 //seelct option
 //https://datatables.net/examples/api/multi_filter_select
+
+
+//might
+//https://stackoverflow.com/questions/32598279/how-to-get-name-of-datatable-column
