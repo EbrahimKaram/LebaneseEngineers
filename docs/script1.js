@@ -28,6 +28,12 @@ var tabulate = function (columns) {
             return d
         });
 
+
+
+    $('#example tfoot th').each(function () {
+        var title = $(this).text();
+        $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+    });
     return table;
 }
 
@@ -68,7 +74,22 @@ d3.csv("All_engineers_reduced.csv", function (data) {
                     return '<a target="_blank" href="https://www.oea.org.lb/Arabic/Memberdetails.aspx?pageid=112&id=' + data + '">Details</a>'
                 }
 
-                        }],
+                        }
+        ],
+        initComplete: function () {
+            // Apply the search
+            this.api().columns().every(function () {
+                var that = this;
+
+                $('input', this.footer()).on('keyup change clear', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+        },
         processing: true,
         language: {
             processing: "<img src='https://media1.giphy.com/media/feN0YJbVs0fwA/giphy.gif'>"
