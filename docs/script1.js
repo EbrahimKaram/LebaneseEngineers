@@ -5,6 +5,8 @@ function hideLoader() {
 // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
 setTimeout(hideLoader, 80 * 1000);
 
+searchable = ['Latin_Names', 'Arabic_Names', 'Engineer_ID'];
+
 var tabulate = function (columns) {
     var table = d3.select('body').select('table');
     var thead = table.append('thead');
@@ -29,10 +31,16 @@ var tabulate = function (columns) {
         });
 
 
+    //    Make sure which we don't want. so we cna have a serach funtion on select columns
+
 
     $('#example tfoot th').each(function () {
         var title = $(this).text();
-        $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+        if (searchable.includes(title)) {
+            console.log(title);
+            $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+        }
+
     });
     return table;
 }
@@ -88,6 +96,8 @@ d3.csv("All_engineers_reduced.csv", function (data) {
                             .draw();
                     }
                 });
+
+
             });
         },
         processing: true,
@@ -97,3 +107,13 @@ d3.csv("All_engineers_reduced.csv", function (data) {
     });
     hideLoader();
 })
+
+
+//Would like to implemnt this
+//https://datatables.net/forums/discussion/48930/individual-column-searching-select-text-inputs
+
+//mutifilter example
+//https://datatables.net/examples/api/multi_filter.html
+
+//seelct option
+//https://datatables.net/examples/api/multi_filter_select
